@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import s from "./ContactsList.module.css";
 
-const ContactList = ({ filterContact, removeContact }) => {
+const ContactList = ({ filterContact, deleteContact }) => {
   return (
     <ul>
       {filterContact.map((contact) => {
         return (
           <li key={contact.id} className={s.item}>
-            <p>{contact.name}: </p>
-            <p>{contact.number}</p>
+            <span>{contact.name}: </span>
+            <span>{contact.number}</span>
             <button
               className={s.button}
               type="button"
-              onClick={() => removeContact(contact.id)}
+              onClick={() => deleteContact(contact.id)}
             >
               Delete
             </button>
@@ -26,6 +26,6 @@ const ContactList = ({ filterContact, removeContact }) => {
 export default ContactList;
 
 ContactList.propTypes = {
-  filterContacts: PropTypes.array,
-  removeContact: PropTypes.func.isRequired,
+  filterContact: PropTypes.array,
+  deleteContact: PropTypes.func.isRequired,
 };

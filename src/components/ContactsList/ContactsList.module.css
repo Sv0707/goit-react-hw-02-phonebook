@@ -2,3 +2,14 @@
   font-size: 16px;
   margin-left: 20px;
 }
+
+.item {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-left: 10px;
+  border-radius: 2px;
+  border: 0.5px solid darkgrey;
+  background-color: rgb(245, 245, 245);
+}

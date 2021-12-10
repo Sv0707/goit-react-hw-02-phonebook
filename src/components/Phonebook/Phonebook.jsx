@@ -1,5 +1,4 @@
 import { Component } from "react";
-import PropTypes from "prop-types";
 import s from "./Phonebook.module.css";
 
 const INITIAL_STATE = { name: "", number: "" };
@@ -27,11 +26,12 @@ class Phonebook extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={s.form}>
         <label className={s.label}>
           {" "}
           Name
           <input
+            className={s.input}
             value={name}
             type="text"
             name="name"
@@ -45,11 +45,12 @@ class Phonebook extends Component {
           {" "}
           Phone
           <input
+            className={s.input}
             value={number}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            title="Номер телефона должен состоять из цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
             onChange={this.handleChange}
           />
@@ -63,7 +64,3 @@ class Phonebook extends Component {
 }
 
 export default Phonebook;
-
-Phonebook.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
