@@ -16,19 +16,22 @@ class App extends Component {
   };
 
   checkedName = (name) => {
-    this.state.contacts.find(
+   return this.state.contacts.find(
       (contact) => name.toLowerCase() === contact.name.toLowerCase()
     );
   };
 
   addContact = ({ name, number }) => {
+
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
-    this.checkedName(name)
-      ? alert(`${name} is already in contacts!`)
+
+// console.log(this.checkedName(name));
+
+this.checkedName(name) ? alert(`${name} is already in contacts!`)
       : this.setState((prevState) => ({
           contacts: [...prevState.contacts, newContact],
         }));
